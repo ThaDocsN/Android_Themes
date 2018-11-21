@@ -13,7 +13,7 @@ public class BookModel {
     }
 
     public static Book getBook(String id) {
-        return SharedPrefsDao.getBook(id);
+        return SharedPrefsDao.getBookCsv(id);
     }
 
     public String nextId() {

@@ -45,14 +45,12 @@ public class SharedPrefsDao {
 
     public static String getNextId() {
 
-            String currentId = MainActivity.preferences.getString(Constants.NEXT_KEY_ID, "");
-            int id = Integer.parseInt(currentId);
-            int nextId    = id + 1;
-            String strNextId = String.valueOf(nextId);
+            int currentId = MainActivity.preferences.getInt(Constants.NEXT_KEY_ID, 0);
+            int nextId    = currentId + 1;
             SharedPreferences.Editor editor = MainActivity.preferences.edit();
-            editor.putString(Constants.NEXT_KEY_ID, strNextId);
+            editor.putInt(Constants.NEXT_KEY_ID, nextId);
             editor.apply();
-        return strNextId;
+        return String.valueOf(currentId);
     }
 
     public static Book getBookCsv(String id) {
@@ -82,7 +80,7 @@ public class SharedPrefsDao {
         addBook(book);
     }
 
-    public static void addId(String id){
+    private static void addId(String id){
         String strGetId = getIds();
         strGetId = strGetId + "," + id;
 

@@ -19,7 +19,7 @@ public class EditBookActivity extends AppCompatActivity {
     EditText edReasonToRead;
     CheckBox checkBox;
     String strId;
-    String strBook;
+    private String strBook;
     SharedPreferences preferences;
 
     @Override

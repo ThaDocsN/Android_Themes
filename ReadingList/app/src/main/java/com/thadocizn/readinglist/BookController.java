@@ -11,11 +11,13 @@ import com.thadocizn.readinglist.ViewModel.BookModel;
 import com.thadocizn.readinglist.activities.EditBookActivity;
 import com.thadocizn.readinglist.classes.Book;
 import com.thadocizn.readinglist.classes.Constants;
+import com.thadocizn.readinglist.data.SharedPrefsDao;
 
 import java.util.ArrayList;
 
 public class BookController {
    static LinearLayout parentLayout;
+   static String csvString;
 
     public static View getBooksView(Context context, Activity activity){
         ArrayList<Book> books;
@@ -29,6 +31,7 @@ public class BookController {
     }
     private static TextView getTextView(final Book book, final Activity activity, final Context
                                  context, LinearLayout linearLayout) {
+
         TextView textView = new TextView(context);
         textView.setText(book.getTitle());
         textView.setTextSize(24);
@@ -46,13 +49,13 @@ public class BookController {
     }
 
     public static void handleEditActivityResult(Intent intent){
-        String csvString  = intent.getStringExtra(Constants.EDIT_BOOK_KEY);
+        csvString  = intent.getStringExtra(Constants.EDIT_BOOK_KEY);
         String[] csv      = csvString.split(",");
         String title      = csv[0];
         String reason     = csv[1];
         String id         = csv[2];
         Boolean read      = Boolean.parseBoolean(csv[3]);
-        Book returnedBook = new Book(title, reason, id, read);
+        Book returnedBook = new Book(title,reason,id,read);
         BookModel.updateBook(returnedBook);
     }
 
