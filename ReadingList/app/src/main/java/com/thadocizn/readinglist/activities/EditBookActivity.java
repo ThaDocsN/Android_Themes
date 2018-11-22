@@ -56,7 +56,6 @@ public class EditBookActivity extends AppCompatActivity {
             Book book = new Book(strBook);
             String name = book.getTitle();
             String reason = book.getReasonToRead();
-            strId = book.getId();
             boolean hasRead = book.isHasBeenRead();
 
             edBook.setText(name);

@@ -50,6 +50,8 @@ public class Book implements Serializable {
         this.reasonToRead = csvs[1];
         this.id = csvs[2];
         this.hasBeenRead = Boolean.parseBoolean(csvs[3]);
+
+        toCsvString();
     }
 
     public Book(String title, String reasonToRead, String id, boolean hasBeenRead) {

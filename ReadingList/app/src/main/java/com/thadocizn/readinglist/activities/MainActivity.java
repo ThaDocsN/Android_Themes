@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, EditBookActivity.class);
-                intent.putExtra(Constants.EDIT_BOOK_KEY, String.valueOf(BookModel.getAllBooks().size()));
+                intent.putExtra(Constants.EDIT_BOOK_KEY, BookModel.nextId());
                 startActivityForResult(intent, Constants.EDIT_BOOK_REQUESTCODE);
             }
         });
