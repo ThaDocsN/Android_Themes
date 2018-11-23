@@ -11,9 +11,9 @@ import java.util.ArrayList;
 public class SharedPrefsDao {
 
     private static String getIds(){
-        String keyIds = null;
+        String keyIds                 = null;
         if (MainActivity.preferences != null){
-            keyIds = MainActivity.preferences.getString(Constants.KEY_IDS, "");
+            keyIds                    = MainActivity.preferences.getString(Constants.KEY_IDS, "");
         }
         return keyIds;
     }
@@ -23,7 +23,7 @@ public class SharedPrefsDao {
     }
 
     public static ArrayList<Book> getAllBooks(){
-        String[] ids = getAllBookIds();
+        String[] ids          = getAllBookIds();
         ArrayList<Book> books = new ArrayList<>(ids.length);
         for(String id : ids){
             if(!id.equals(""))
@@ -36,15 +36,15 @@ public class SharedPrefsDao {
         Book currentBook = null;
         if (MainActivity.preferences != null){
           final  String strBook = MainActivity.preferences.getString(Constants.KEY_ID_PREFIX + id, "");
-          currentBook = new Book(strBook);
+          currentBook    = new Book(strBook);
         }
         return currentBook;
     }
 
     public static String getNextId() {
 
-            int currentId = MainActivity.preferences.getInt(Constants.NEXT_KEY_ID, 0);
-            int nextId    = currentId + 1;
+            int currentId                   = MainActivity.preferences.getInt(Constants.NEXT_KEY_ID, 0);
+            int nextId                      = currentId + 1;
             SharedPreferences.Editor editor = MainActivity.preferences.edit();
             editor.putInt(Constants.NEXT_KEY_ID, nextId);
             editor.apply();
@@ -55,8 +55,8 @@ public class SharedPrefsDao {
         if (book.getId().isEmpty()){
             book.setId(getNextId());
         }
-        String[] ids = getAllBookIds();
-        boolean active = false;
+        String[] ids       = getAllBookIds();
+        boolean active     = false;
         for(String id : ids){
                 if(book.getId().equals(id)){
                     active = true;
@@ -77,7 +77,7 @@ public class SharedPrefsDao {
 
     private static void addId(String id){
         String strGetId = getIds();
-        strGetId = strGetId + "," + id;
+        strGetId        = strGetId + "," + id;
 
         SharedPreferences.Editor editor = MainActivity.preferences.edit();
         editor.putString(Constants.KEY_IDS, strGetId.replace(" ", ""));

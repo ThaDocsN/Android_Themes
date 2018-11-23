@@ -11,17 +11,16 @@ import com.thadocizn.readinglist.ViewModel.BookModel;
 import com.thadocizn.readinglist.activities.EditBookActivity;
 import com.thadocizn.readinglist.classes.Book;
 import com.thadocizn.readinglist.classes.Constants;
-import com.thadocizn.readinglist.data.SharedPrefsDao;
 
 import java.util.ArrayList;
 
 public class BookController {
-   static LinearLayout parentLayout;
-   static String csvString;
+    private static LinearLayout parentLayout;
+    private static Context context;
 
     public static View getBooksView(Context context, Activity activity){
         ArrayList<Book> books;
-        books = BookModel.getAllBooks();
+        books        = BookModel.getAllBooks();
         parentLayout = new LinearLayout(context);
         parentLayout.setOrientation(LinearLayout.VERTICAL);
         for(Book book : books){
@@ -32,29 +31,35 @@ public class BookController {
     private static TextView getTextView(final Book book, final Activity activity, final Context
                                  context, LinearLayout linearLayout) {
 
-        TextView textView = new TextView(context);
+        int padding = context.getResources().getDimensionPixelSize(R.dimen.text_padding);
+        TextView textView     = new TextView(context);
         textView.setText(book.getTitle());
-        textView.setTextSize(24);
-        textView.setPadding(10, 10, 10, 10);
+        textView.setTextSize(context.getResources().getDimensionPixelSize(R.dimen.text_size));
+        textView.setPadding(padding, padding, padding, padding);
         parentLayout.addView(textView);
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, EditBookActivity.class);
                 intent.putExtra(Constants.CSV_STRING, BookModel.getBook(book.getId()));
-                activity.startActivityForResult(intent, Constants.EDIT_BOOK_REQUESTCODE);
+                activity.startActivityForResult(intent, Constants.EDIT_BOOK_REQUEST_CODE);
             }
         });
         return textView;
     }
 
+    public static String getNextId(){
+        return BookModel.nextId();
+    }
+
     public static void handleEditActivityResult(Intent intent){
-        csvString  = intent.getStringExtra(Constants.EDIT_BOOK_KEY);
+        Integer index = context.getResources().getInteger(R.integer.index);
+        String csvString = intent.getStringExtra(Constants.EDIT_BOOK_KEY);
         String[] csv      = csvString.split(",");
-        String title      = csv[0];
-        String reason     = csv[1];
-        String id         = csv[2];
-        Boolean read      = Boolean.parseBoolean(csv[3]);
+        String title      = csv[index];
+        String reason     = csv[index + 1];
+        String id         = csv[index + 2];
+        Boolean read      = Boolean.parseBoolean(csv[index + 3]);
         Book returnedBook = new Book(title,reason,id,read);
         BookModel.updateBook(returnedBook);
     }

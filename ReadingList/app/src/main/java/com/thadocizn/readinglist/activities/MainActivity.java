@@ -12,15 +12,16 @@ import android.widget.ScrollView;
 
 import com.thadocizn.readinglist.BookController;
 import com.thadocizn.readinglist.R;
-import com.thadocizn.readinglist.ViewModel.BookModel;
 import com.thadocizn.readinglist.classes.Constants;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.Objects;
 
-    Context context;
-    Activity activity;
-    ScrollView scrollView;
+public class MainActivity extends AppCompatActivity {
     public static SharedPreferences preferences;
+
+    Context    context;
+    Activity   activity;
+    ScrollView scrollView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,14 +31,14 @@ public class MainActivity extends AppCompatActivity {
         preferences = this.getSharedPreferences(Constants.COM_THADOCIZN_READING_LIST, Context.MODE_PRIVATE);
         context     = this;
         activity    = this;
-        scrollView = findViewById(R.id.scrollView1);
+        scrollView  = findViewById(R.id.scrollView1);
 
         findViewById(R.id.btnAddBook).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, EditBookActivity.class);
-                intent.putExtra(Constants.EDIT_BOOK_KEY, BookModel.nextId());
-                startActivityForResult(intent, Constants.EDIT_BOOK_REQUESTCODE);
+                intent.putExtra(Constants.EDIT_BOOK_KEY, BookController.getNextId());
+                startActivityForResult(intent, Constants.EDIT_BOOK_REQUEST_CODE);
             }
         });
     }
@@ -60,8 +61,8 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (resultCode == RESULT_OK){
-            if (requestCode == Constants.EDIT_BOOK_REQUESTCODE){
-                BookController.handleEditActivityResult(data);
+            if (requestCode == Constants.EDIT_BOOK_REQUEST_CODE){
+                BookController.handleEditActivityResult(Objects.requireNonNull(data));
             }
         }
     }
