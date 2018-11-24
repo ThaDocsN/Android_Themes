@@ -8,18 +8,20 @@ import com.thadocizn.readinglist.classes.Constants;
 
 import java.util.ArrayList;
 
+import static com.thadocizn.readinglist.classes.Constants.*;
+
 public class SharedPrefsDao {
 
     private static String getIds(){
         String keyIds                 = null;
         if (MainActivity.preferences != null){
-            keyIds                    = MainActivity.preferences.getString(Constants.KEY_IDS, "");
+            keyIds                    = MainActivity.preferences.getString(KEY_IDS, null);
         }
         return keyIds;
     }
     private static String[] getAllBookIds(){
         // keys are stored as csv
-        return getIds().split(",");
+        return getIds().split(SEPERATOR);
     }
 
     public static ArrayList<Book> getAllBooks(){
@@ -33,9 +35,9 @@ public class SharedPrefsDao {
     }
 
     public static Book getBook(String id){
-        Book currentBook = null;
+        Book currentBook              = null;
         if (MainActivity.preferences != null){
-          final  String strBook = MainActivity.preferences.getString(Constants.KEY_ID_PREFIX + id, "");
+          final  String strBook = MainActivity.preferences.getString(KEY_ID_PREFIX + id, null);
           currentBook    = new Book(strBook);
         }
         return currentBook;
@@ -43,10 +45,10 @@ public class SharedPrefsDao {
 
     public static String getNextId() {
 
-            int currentId                   = MainActivity.preferences.getInt(Constants.NEXT_KEY_ID, 0);
-            int nextId                      = currentId + 1;
+            int currentId                   = MainActivity.preferences.getInt(NEXT_KEY_ID, DEFAULT_VALUE);
+            int nextId                      = currentId + ONE;
             SharedPreferences.Editor editor = MainActivity.preferences.edit();
-            editor.putInt(Constants.NEXT_KEY_ID, nextId);
+            editor.putInt(NEXT_KEY_ID, nextId);
             editor.apply();
         return String.valueOf(nextId);
     }
@@ -71,7 +73,7 @@ public class SharedPrefsDao {
 
     private static void addBook(Book book){
         SharedPreferences.Editor editor = MainActivity.preferences.edit();
-        editor.putString(Constants.KEY_ID_PREFIX + book.getId(), book.toCsvString());
+        editor.putString(KEY_ID_PREFIX + book.getId(), book.toCsvString());
         editor.apply();
     }
 
@@ -80,7 +82,7 @@ public class SharedPrefsDao {
         strGetId        = strGetId + "," + id;
 
         SharedPreferences.Editor editor = MainActivity.preferences.edit();
-        editor.putString(Constants.KEY_IDS, strGetId.replace(" ", ""));
+        editor.putString(KEY_IDS, strGetId.replace(" ", ""));
         editor.apply();
     }
 }

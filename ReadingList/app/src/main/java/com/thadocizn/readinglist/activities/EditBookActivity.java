@@ -27,15 +27,15 @@ public class EditBookActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_book);
 
-        preferences    = this.getSharedPreferences(Constants.COM_THADOCIZN_READING_LIST, Context.MODE_PRIVATE);
+        preferences         = this.getSharedPreferences(Constants.COM_THADOCIZN_READING_LIST, Context.MODE_PRIVATE);
 
-        Intent intent  = getIntent();
-        strId          = intent.getStringExtra(Constants.EDIT_BOOK_KEY);
-        strBook        = intent.getStringExtra(Constants.CSV_STRING);
+        Intent intent       = getIntent();
+        strId               = intent.getStringExtra(Constants.EDIT_BOOK_KEY);
+        strBook             = intent.getStringExtra(Constants.CSV_STRING);
 
-        edBook         = findViewById(R.id.edBookTitle);
-        edReasonToRead = findViewById(R.id.edReasonToRead);
-        checkBox       = findViewById(R.id.checkboxReadBook);
+        edBook              = findViewById(R.id.edBookTitle);
+        edReasonToRead      = findViewById(R.id.edReasonToRead);
+        checkBox            = findViewById(R.id.checkboxReadBook);
 
         findViewById(R.id.btnSubmit).setOnClickListener(new View.OnClickListener() {
             @Override

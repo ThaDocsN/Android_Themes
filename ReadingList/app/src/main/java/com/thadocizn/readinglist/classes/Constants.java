@@ -11,4 +11,10 @@ public class Constants {
     public static final String KEY_ID_PREFIX                 = "key_id_";
     public static final String NEXT_KEY_ID                   = "key_next_id";
     public static final String TAG                           = MainActivity.class.getSimpleName();
+    public static final String SEPERATOR                     = ",";
+    public static final int    INDEX                         = 0;
+    public static final int    ONE                           = 1;
+    public static final int    TWO                           = 2;
+    public static final int    THREE                         = 3;
+    public static final int    DEFAULT_VALUE                 = 0;
 }

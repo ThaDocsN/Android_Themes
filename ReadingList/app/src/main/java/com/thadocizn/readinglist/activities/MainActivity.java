@@ -10,11 +10,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ScrollView;
 
-import com.thadocizn.readinglist.BookController;
 import com.thadocizn.readinglist.R;
-import com.thadocizn.readinglist.classes.Constants;
 
 import java.util.Objects;
+
+import static com.thadocizn.readinglist.BookController.*;
+import static com.thadocizn.readinglist.classes.Constants.*;
 
 public class MainActivity extends AppCompatActivity {
     public static SharedPreferences preferences;
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        preferences = this.getSharedPreferences(Constants.COM_THADOCIZN_READING_LIST, Context.MODE_PRIVATE);
+        preferences = this.getSharedPreferences(COM_THADOCIZN_READING_LIST, Context.MODE_PRIVATE);
         context     = this;
         activity    = this;
         scrollView  = findViewById(R.id.scrollView1);
@@ -37,8 +38,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, EditBookActivity.class);
-                intent.putExtra(Constants.EDIT_BOOK_KEY, BookController.getNextId());
-                startActivityForResult(intent, Constants.EDIT_BOOK_REQUEST_CODE);
+                intent.putExtra(EDIT_BOOK_KEY, getNextId());
+                startActivityForResult(intent, EDIT_BOOK_REQUEST_CODE);
             }
         });
     }
@@ -47,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         scrollView.removeAllViews();
-        scrollView.addView(BookController.getBooksView(context, activity));
+        scrollView.addView(getBooksView(context, activity));
 
     }
 
@@ -61,8 +62,8 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (resultCode == RESULT_OK){
-            if (requestCode == Constants.EDIT_BOOK_REQUEST_CODE){
-                BookController.handleEditActivityResult(Objects.requireNonNull(data));
+            if (requestCode == EDIT_BOOK_REQUEST_CODE){
+                handleEditActivityResult(Objects.requireNonNull(data));
             }
         }
     }
