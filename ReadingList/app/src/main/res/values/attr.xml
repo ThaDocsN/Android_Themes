@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    
+    <attr name="layouts_width" format="reference" />
+    <attr name="layout_height" format="reference" />
+    <attr name="edit_text_view_text_size" format="reference" />
+    <attr name="layout_margin" format="reference" />
+    <attr name="text_view_text_size" format="reference" />
+    <attr name="book_text_color" format="reference" />
 </resources>

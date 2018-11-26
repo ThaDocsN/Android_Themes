@@ -6,10 +6,10 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="book_text_color">@color/textColor</item>
     </style>
 
-    <style name="AppThemeDark" parent="Theme.AppCompat">
-        <!-- Customize your theme here. -->
+    <style name="AppThemeDark" parent="AppTheme">
         <item name="colorPrimary">@color/darkColorPrimary</item>
         <item name="colorPrimaryDark">@color/darkColorPrimaryDark</item>
         <item name="colorAccent">@color/darkColorAccent</item>

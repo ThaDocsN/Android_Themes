@@ -5,4 +5,7 @@
     <string name="reason_to_read">Reason to Read</string>
     <string name="cancel">Cancel</string>
     <string name="submit">Submit</string>
+    <string name="enter_book">Enter Book Name</string>
+    <string name="enter_reason_to_read">Enter reason to read book</string>
+    <string name="add_book">Add Book</string>
 </resources>

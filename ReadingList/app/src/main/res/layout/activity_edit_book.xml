@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context=".activities.EditBookActivity">
 
@@ -13,6 +13,7 @@
 
         <TextView
             android:id="@+id/textView"
+            android:textColor="?attr/book_text_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -24,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:hint="@string/book_title"
+            android:hint="@string/enter_book"
             android:inputType="textPersonName" />
     </LinearLayout>
 
@@ -35,6 +36,7 @@
 
         <TextView
             android:id="@+id/textView1"
+            android:textColor="?attr/book_text_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -46,33 +48,43 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:hint="@string/reason_to_read"
+            android:hint="@string/enter_reason_to_read"
             android:inputType="textPersonName" />
     </LinearLayout>
 
     <CheckBox
         android:id="@+id/checkboxReadBook"
         android:layout_width="match_parent"
+        android:textColor="?attr/book_text_color"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin"
+        android:layout_marginRight="@dimen/margin"
         android:text="@string/read_book" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/btnCancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin"
+            android:layout_marginTop="@dimen/margin"
+            android:layout_marginRight="@dimen/margin"
             android:layout_weight="1"
+            android:background="@android:color/holo_blue_dark"
             android:text="@string/cancel" />
 
         <Button
             android:id="@+id/btnSubmit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:layout_marginRight="@dimen/margin"
             android:layout_weight="1"
+            android:background="@android:color/holo_blue_dark"
             android:text="@string/submit" />
     </LinearLayout>
 </LinearLayout>
