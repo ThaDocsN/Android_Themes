@@ -7,10 +7,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.thadocizn.readinglist.ViewModel.BookModel;
 import com.thadocizn.readinglist.activities.EditBookActivity;
 import com.thadocizn.readinglist.classes.Book;
-import com.thadocizn.readinglist.classes.Constants;
 
 import java.util.ArrayList;
 
@@ -57,7 +55,7 @@ public class BookController {
 
     public static void handleEditActivityResult(Intent intent){
         String csvString  = intent.getStringExtra(EDIT_BOOK_KEY);
-        String[] csv      = csvString.split(SEPERATOR);
+        String[] csv      = csvString.split(SEPARATOR);
         String title      = csv[INDEX];
         String reason     = csv[INDEX + ONE];
         String id         = csv[INDEX + TWO];

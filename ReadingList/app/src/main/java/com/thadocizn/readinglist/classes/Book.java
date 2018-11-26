@@ -12,7 +12,7 @@ public class Book implements Serializable {
 
 
     public String toCsvString() {
-        return String.format("%s,%s,%s,%b".replaceAll(" ", SEPERATOR), this.title, this.reasonToRead, this.id, this.hasBeenRead);
+        return String.format("%s,%s,%s,%b".replaceAll(" ", SEPARATOR), this.title, this.reasonToRead, this.id, this.hasBeenRead);
     }
 
     public String getTitle() {
@@ -40,7 +40,7 @@ public class Book implements Serializable {
     }
 
     public Book(String csv) {
-        String[] csvs     = csv.split(SEPERATOR);
+        String[] csvs     = csv.split(SEPARATOR);
         this.title        = csvs[INDEX];
         this.reasonToRead = csvs[INDEX + ONE];
         this.id           = csvs[INDEX + TWO];

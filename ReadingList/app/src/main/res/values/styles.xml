@@ -7,12 +7,41 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="book_text_color">@color/textColor</item>
+        <item name="edit_text_view_text_size">@dimen/edit_text_size</item>
+        <item name="text_view_text_size">@dimen/text_size</item>
+        <item name="app_layout_margin">@dimen/margin</item>
+        <item name="background_button_color">@color/buttonBackground</item>
     </style>
 
     <style name="AppThemeDark" parent="AppTheme">
+        <item name="book_text_color">@color/darkTextColor</item>
         <item name="colorPrimary">@color/darkColorPrimary</item>
         <item name="colorPrimaryDark">@color/darkColorPrimaryDark</item>
         <item name="colorAccent">@color/darkColorAccent</item>
+    </style>
+
+    <style name="EditActivityLayout">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="ButtonLayout">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="TextViewLayout">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="EditViewLayout">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:inputType">textPersonName</item>
+        <item name="android:ems">10</item>
     </style>
 
 </resources>

@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".activities.MainActivity">
 
     <ScrollView
         android:id="@+id/scrollView1"
-        android:layout_margin="@dimen/margin"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="?attr/app_layout_margin">
 
         <LinearLayout
             android:id="@+id/parentLayout"
-            android:layout_margin="@dimen/margin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            style="@style/EditActivityLayout"
+            android:layout_margin="?attr/app_layout_margin"
+            android:orientation="vertical">
 
         </LinearLayout>
     </ScrollView>
@@ -28,8 +26,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="@dimen/margin"
-        android:background="@android:color/holo_blue_dark"
+        android:layout_margin="?attr/app_layout_margin"
+        android:background="?attr/background_button_color"
         android:text="@string/add_book" />
 
 </LinearLayout>

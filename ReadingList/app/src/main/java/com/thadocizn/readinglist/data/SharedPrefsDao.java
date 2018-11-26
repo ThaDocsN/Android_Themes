@@ -4,7 +4,6 @@ import android.content.SharedPreferences;
 
 import com.thadocizn.readinglist.activities.MainActivity;
 import com.thadocizn.readinglist.classes.Book;
-import com.thadocizn.readinglist.classes.Constants;
 
 import java.util.ArrayList;
 
@@ -21,7 +20,7 @@ public class SharedPrefsDao {
     }
     private static String[] getAllBookIds(){
         // keys are stored as csv
-        return getIds().split(SEPERATOR);
+        return getIds().split(SEPARATOR);
     }
 
     public static ArrayList<Book> getAllBooks(){

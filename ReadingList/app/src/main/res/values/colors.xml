@@ -3,6 +3,7 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
     <!--Dark color theme-->
     <color name="darkColorPrimary">#E53935</color>
     <color name="darkColorPrimaryDark">#B71C1C</color>
@@ -10,5 +11,9 @@
 
     <!--TextColor theme-->
     <color name="textColor">#2962FF</color>
+    <color name="darkTextColor">#B71C1C</color>
+
+    <!--Button Background-->
+    <color name="buttonBackground">@android:color/holo_blue_dark</color>
 
 </resources>
