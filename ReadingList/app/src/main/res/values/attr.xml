@@ -5,4 +5,5 @@
     <attr name="text_view_text_size" format="reference" />
     <attr name="book_text_color" format="reference" />
     <attr name="background_button_color" format="reference" />
+    <attr name="app_icons" format="reference" />
 </resources>

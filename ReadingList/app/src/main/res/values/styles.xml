@@ -11,6 +11,7 @@
         <item name="text_view_text_size">@dimen/text_size</item>
         <item name="app_layout_margin">@dimen/margin</item>
         <item name="background_button_color">@color/buttonBackground</item>
+        <item name="app_icons">@drawable/ic_action_name_dark</item>
     </style>
 
     <style name="AppThemeDark" parent="AppTheme">
@@ -18,6 +19,7 @@
         <item name="colorPrimary">@color/darkColorPrimary</item>
         <item name="colorPrimaryDark">@color/darkColorPrimaryDark</item>
         <item name="colorAccent">@color/darkColorAccent</item>
+        <item name="app_icons">@drawable/ic_action_name</item>
     </style>
 
     <style name="EditActivityLayout">

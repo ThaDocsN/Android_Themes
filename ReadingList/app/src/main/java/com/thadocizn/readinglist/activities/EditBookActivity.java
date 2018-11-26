@@ -13,6 +13,7 @@ import android.widget.EditText;
 import com.thadocizn.readinglist.R;
 import com.thadocizn.readinglist.classes.Book;
 import com.thadocizn.readinglist.classes.Constants;
+import com.thadocizn.readinglist.classes.ThemeUtils;
 
 public class EditBookActivity extends AppCompatActivity {
     EditText          edBook;
@@ -24,6 +25,7 @@ public class EditBookActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        ThemeUtils.onActivityCreateSetTheme(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_book);
 

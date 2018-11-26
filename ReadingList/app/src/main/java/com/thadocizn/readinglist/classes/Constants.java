@@ -17,4 +17,5 @@ public class Constants {
     public static final int    TWO                           = 2;
     public static final int    THREE                         = 3;
     public static final int    DEFAULT_VALUE                 = 0;
+    public static final String THEME = "theme";
 }
