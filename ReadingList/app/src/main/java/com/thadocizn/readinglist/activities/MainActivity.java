@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ScrollView;
 
 import com.thadocizn.readinglist.R;
+import com.thadocizn.readinglist.classes.ThemeUtils;
 
 import java.util.Objects;
 
@@ -23,9 +24,11 @@ public class MainActivity extends AppCompatActivity {
     Context    context;
     Activity   activity;
     ScrollView scrollView;
+    int themeId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        ThemeUtils.onActivityCreateSetTheme(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -44,11 +47,30 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public void checkTheme(){
+        if (themeId != ThemeUtils.getSelectedTheme(activity)){
+            ThemeUtils.refreshActivity(activity);
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        checkTheme();
+        super.onStart();
+    }
+
+    @Override
+    public void setTheme(int themeId) {
+        super.setTheme(themeId);
+    }
+
     @Override
     protected void onResume() {
+        checkTheme();
         super.onResume();
         scrollView.removeAllViews();
         scrollView.addView(getBooksView(context, activity));
+
 
     }
 

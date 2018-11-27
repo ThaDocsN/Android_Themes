@@ -24,25 +24,6 @@ public class ThemeUtils {
         }
         return theme;
     }
-    public static void toggleTheme(Activity activity){
-        getCurrentTheme(activity);
-        int theme;
-        theme     = getSelectedTheme(activity);
-        storeCurrentTheme(activity, theme);
-        refreshActivity(activity);
-    }
-
-    public static void storeCurrentTheme(Activity activity, int theme){
-        SharedPreferences preferences = getPreferences(activity);
-        SharedPreferences.Editor editor = preferences.edit();
-
-        if (theme == R.style.AppThemeDark){
-            editor.putBoolean("Theme", true);
-        } else {
-            editor.putBoolean(Constants.THEME, true);
-        }
-        editor.apply();
-    }
 
     public static int getCurrentTheme(Activity activity){
         SharedPreferences preferences = getPreferences(activity);
@@ -51,7 +32,7 @@ public class ThemeUtils {
     }
 
     public static void onActivityCreateSetTheme(Activity activity){
-        activity.setTheme(getCurrentTheme(activity));
+        activity.setTheme(getSelectedTheme(activity));
     }
 
     public static void refreshActivity(Activity activity){
